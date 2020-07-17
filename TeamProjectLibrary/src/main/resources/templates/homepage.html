@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+
+<body>
+<h2>Library</h2>
+   <p>
+   <b><i>LMS</i></b> is a software application useful for librarians in any educational institution for management and handling of typical operations in the library.<br>
+    It manages data through computerized system in a database which eradicates the tediousness in searching a particular book in the entire library.
+   </p>
+   
+   <p><a th:href="@{books/}">Manage books</a></p>
+   <p><a th:href="@{customers/}">Manage customers</a></p>
+   
+   <img th:src="@{/img/bookspic.jpg}">
+   
+</body>
+</html>
