@@ -8,10 +8,10 @@
 	<input type="hidden" th:field="*{id}" id="id">
     <br/>
     <label for="customerId">Customer Id</label>
-    <input readonly type="number" th:field="*{customer.id}" id="customerId" placeholder="Customer id">
+    <input readonly type="text" th:field="*{customer.lastName}" id="customer.id" placeholder="Customer id">
     <br/>
     <label for="bookId">Book id</label>
-    <input readonly type="text" th:field="*{book.dd}" id="bookId" placeholder="Book id">
+    <input readonly type="text" th:field="*{book.title}" id="book.id" placeholder="Book id">
     <br/>
     <label for="issueDate">Date of issue</label>
     <input readonly type="text" th:field="*{issueDate}" id="issueDate" placeholder="Date of issue">
