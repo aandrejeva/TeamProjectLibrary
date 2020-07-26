@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Issued books</title>
+    <style>
+	td {text-align: center;}
+</style>
+</head>
+<body>
+<div th:switch="${issues}">
+    <h2 th:case="null">No issued books found!</h2>
+    <div th:case="*">
+    
+
+        <h2>Issued books</h2>
+        <p><a href="/customer-issue">Issue new book</a></p>
+        
+ </div>&nbsp;<div>  
+     
+ <div>
+	<form th:action= "@{issues}">
+		Enter customer name: 
+		<input type="text" name="keyword" required/>
+		&nbsp;
+		<input type="submit" value="Find issue" />
+		&nbsp;
+		<input type="button" value="Clear" />
+	</form>	
+</div>  
+
+</div>&nbsp;<div>
+    
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Customer id</th>
+                <th>Book id</th>
+                <th>Date of issue</th>
+                <th>Date of return</th>
+                <th>Returned on</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="issueBook : ${issues}">
+                <td th:text="${issueBook.id}"></td>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${issueBook.customerId}"></td>
+                <td th:text="${issueBook.bookId}"></td>
+                <td th:text="${issueBook.issueDate}"></td>
+                <td th:text="${issueBook.expectedReturnDate}"></td>
+                <td th:text="${issueBook.actualReturnDate}"></td>
+                <td><a th:href="@{customer-return/{id}(id=${issueBook.id})}">Select</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+

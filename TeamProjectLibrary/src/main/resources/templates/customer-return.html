@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Issue new Book</title>
+</head>
+<body>
+<form action="#" th:action="@{/customer-return}" th:object="${issueBook}" method="post">
+	<input type="hidden" th:field="*{id}" id="id">
+    <br/>
+    <label for="customerId">Customer Id</label>
+    <input readonly type="number" th:field="*{customerId}" id="customerId" placeholder="Customer id">
+    <br/>
+    <label for="bookId">Book id</label>
+    <input readonly type="text" th:field="*{bookId}" id="bookId" placeholder="Book id">
+    <br/>
+    <label for="issueDate">Date of issue</label>
+    <input readonly type="text" th:field="*{issueDate}" id="issueDate" placeholder="Date of issue">
+    <br/>
+    <label for="expectedReturnDate">Date of return</label>
+    <input readonly type="text" th:field="*{expectedReturnDate}" id="expectedReturnDate" placeholder="Date of return">
+    <br/>
+    <label for="actualReturnDate">Returned on</label>
+    <input type="date" th:field="*{actualReturnDate}" id="actualReturnDate" placeholder="Returned on">
+    <br/>
+    <input type="submit" value="Return Book">
+</form>
+</body>
+</html>
