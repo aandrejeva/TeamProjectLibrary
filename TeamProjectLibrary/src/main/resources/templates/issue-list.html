@@ -47,10 +47,10 @@
             <tbody>
             <tr th:each="issueBook : ${issues}">
                 <td th:text="${issueBook.id}"></td>
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${issueBook.customerId}"></td>
-                <td th:text="${issueBook.bookId}"></td>
+                <td th:text="${issueBook.customer.firstName}"></td>
+                <td th:text="${issueBook.customer.lastName}"></td>
+                <td th:text="${issueBook.customer.id}"></td>
+                <td th:text="${issueBook.book.title}"></td>
                 <td th:text="${issueBook.issueDate}"></td>
                 <td th:text="${issueBook.expectedReturnDate}"></td>
                 <td th:text="${issueBook.actualReturnDate}"></td>
