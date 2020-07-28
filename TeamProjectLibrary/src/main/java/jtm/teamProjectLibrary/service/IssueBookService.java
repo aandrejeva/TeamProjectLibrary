@@ -38,14 +38,15 @@ public class IssueBookService {
 	public IssueBook findById(int id) {
 		return issueBookRepository.getOne(id);
 	}
-	
+
 	public void availabilityCheck(int id) {
-	int result = issueBookRepository.availabilityCheck(id);
-	Book book = new Book();
-		if(book.getCount() - result == 0) {
-			System.out.println("Book with id: " + id + " and mysql result: " + result + " and book count " + book.getCount() + " is not available at the moment");
+		int result = issueBookRepository.availabilityCheck(id);
+		Book book = new Book();
+		if (book.getCount() - result == 0) {
+			System.out.println("Book with id: " + id + " and mysql result: " + result + " and book count "
+					+ book.getCount() + " is not available at the moment");
 		}
-		
+
 	}
-	
+
 }

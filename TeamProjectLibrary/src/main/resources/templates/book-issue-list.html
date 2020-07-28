@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<div th:switch="${books}">
+    <h2 th:case="null">No books found!</h2>
+    <div th:case="*">
+        <h2>Books</h2>
+        <p><a href="/book-create">Create book</a></p>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Publisher</th>
+                <th>Annotation</th>
+                <th>Available</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}"></td>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.year}"></td>
+                <td th:text="${book.publisher}"></td>
+                <td th:text="${book.annotation}"></td>
+                <td th:text="${book.available}"></td>
+           		<!-- hide link if not available -->
+                <td><a th:href="@{/customer-issue/{id}(id=${book.id})}">Issue</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -18,5 +18,9 @@ public interface IssueBookRepository extends JpaRepository<IssueBook, Integer> {
 			nativeQuery = true)
 	public int availabilityCheck (int id);
 	
+	@Query(value = "SELECT book_id, count(*) from library_database.issue_book where actual_return_date is null group by book_id", 
+			nativeQuery = true)
+	public List<Object[]> availabilityCheck ();
+	
 }
 
