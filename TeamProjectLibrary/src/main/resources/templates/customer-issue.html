@@ -8,11 +8,11 @@
 <form action="#" th:action="@{/customer-issue}" th:object="${issueBook}" method="post">
     <input type="hidden" th:field="*{id}" id="id">
     <br/>
-    <label for="customerId">Customer Id</label>
-    <input type="text" th:field="*{customerId}" id="customerId" placeholder="Customer Id">
+    <label for="customer">Customer Id</label>
+    <input type="text" th:field="*{customer.id}" id="customer" placeholder="Customer Id">
     <br/>
-    <label for="bookId">Book Id</label>
-    <input type="text" th:field="*{bookId}" id="bookId" placeholder="Book Id">
+    <label for="book">Book Id</label>
+    <input type="text" th:field="*{book.id}" id="book" placeholder="Book Id">
     <br/>
     <label for="issueDate">Date of issue</label>
     <input type="date" th:field="*{issueDate}" id="issueDate" placeholder="Date of issue">

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
@@ -7,11 +8,11 @@
 <form action="#" th:action="@{/customer-return}" th:object="${issueBook}" method="post">
 	<input type="hidden" th:field="*{id}" id="id">
     <br/>
-    <label for="customerId">Customer Id</label>
-    <input readonly type="number" th:field="*{customerId}" id="customerId" placeholder="Customer id">
+    <label for="customer.id">Customer Id</label>
+    <input readonly type="text" th:field="*{customer.id}" id="customerId" placeholder="Customer id">
     <br/>
     <label for="bookId">Book id</label>
-    <input readonly type="text" th:field="*{bookId}" id="bookId" placeholder="Book id">
+    <input readonly type="text" th:field="*{book.id}" id="bookId" placeholder="Book id">
     <br/>
     <label for="issueDate">Date of issue</label>
     <input readonly type="text" th:field="*{issueDate}" id="issueDate" placeholder="Date of issue">

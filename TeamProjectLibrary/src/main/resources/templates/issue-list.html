@@ -20,12 +20,12 @@
      
  <div>
 	<form th:action= "@{issues}">
-		Enter customer name: 
-		<input type="text" name="keyword" required/>
+		Filter by last name: 
+		<input type="text" name="searchName" th:value="${searchName}" required/>
 		&nbsp;
 		<input type="submit" value="Find issue" />
 		&nbsp;
-		<input type="button" value="Clear" />
+		<input type="button" value="Clear" onclick="clearFilter()"/>
 	</form>	
 </div>  
 
@@ -47,10 +47,10 @@
             <tbody>
             <tr th:each="issueBook : ${issues}">
                 <td th:text="${issueBook.id}"></td>
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${issueBook.customerId}"></td>
-                <td th:text="${issueBook.bookId}"></td>
+                <td th:text="${issueBook.customer.firstName}"></td>
+                <td th:text="${issueBook.customer.lastName}"></td>
+                <td th:text="${issueBook.customer.id}"></td>
+                <td th:text="${issueBook.book.title}"></td>
                 <td th:text="${issueBook.issueDate}"></td>
                 <td th:text="${issueBook.expectedReturnDate}"></td>
                 <td th:text="${issueBook.actualReturnDate}"></td>
@@ -60,6 +60,10 @@
         </table>
     </div>
 </div>
+<script type= "text/javascript">
+	function clearFilter() {
+	window.location = '/issues';
+	}
+</script>
 </body>
 </html>
-
