@@ -51,6 +51,7 @@
                 		<th>Date of issue</th>
                 		<th>Date of return</th>
                 		<th>Returned on</th>
+                		<th>Return</th>
                 		
             	</tr>
             </thead>
@@ -65,7 +66,7 @@
                 		<td th:text="${issueBook.issueDate}"></td>
                 		<td th:text="${issueBook.expectedReturnDate}"></td>
                 		<td th:text="${issueBook.actualReturnDate}"></td>
-                		<td><a th:href="@{customer-return/{id}(id=${issueBook.id})}">Select</a></td>	
+                		<td><a th:href="@{customer-return/{id}(id=${issueBook.id})}" th:unless="${issueBook.actualReturnDate}">Select</a></td>
            		</tr>
             </tbody>
         </table>
