@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
-<title>Create book</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Update book</title>
 </head>
 <body>
-<form action="#" th:action="@{/book-update}" th:object="${book}" method="post">
-    <label for="id">Id</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="Id">
-    <br/>
-    <label for="title">Title</label>
-    <input type="text" th:field="*{title}" id="title" placeholder="Title">
-    <br/>
-    <label for="year">Year</label>
-    <input type="text" th:field="*{year}" id="year" placeholder="Year">
-    <br/>
-    <label for="publisher">Publisher</label>
-    <input type="text" th:field="*{publisher}" id="publisher" placeholder="Publisher">
-    <br/>
-    <label for="annotation">Annotation</label>
-    <input type="text" th:field="*{annotation}" id="annotation" placeholder="Annotation">
-    <br/>
-    <label for="available">Available</label>
-    <input type="text" th:field="*{available}" id="available" placeholder="Available">
-    <br/>
-    <label for="count">Count</label>
-    <input type="text" th:field="*{count}" id="count" placeholder="Count">
-    <br/>
-    <input type="submit" value="Update Book">
-</form>
+	<section class="text-center">
+		<div class="container">
+			<br>
+			<h1>Update book</h1>
+		</div>
+	</section>
+
+	<section class="center">
+		<div class="container">
+			<form action="#" th:action="@{/book-update}" th:object="${book}"
+				method="post">
+				<div class="form-group">
+					<label for="id">Id</label> <input type="number"
+						class="form-control classname" th:field="*{id}" id="id"
+						placeholder="Id" readonly> <br /> <label for="title">Title</label>
+					<input type="text" class="form-control classname"
+						th:field="*{title}" id="title" placeholder="Title"> <br />
+					<label for="year">Year</label> <input type="text"
+						class="form-control classname" th:field="*{year}" id="year"
+						placeholder="Year"> <br /> <label for="publisher">Publisher</label>
+					<input type="text" class="form-control classname"
+						th:field="*{publisher}" id="publisher" placeholder="Publisher">
+					<br /> <label for="annotation">Annotation</label> <input
+						type="text" class="form-control classname"
+						th:field="*{annotation}" id="annotation" placeholder="Annotation">
+					<br /> <label for="available">Available</label> <input type="text"
+						class="form-control classname" th:field="*{available}"
+						id="available" placeholder="Available"> <br /> <label
+						for="count">Count</label> <input type="text"
+						class="form-control classname" th:field="*{count}" id="count"
+						placeholder="Count"> <br /> <input type="submit"
+						class="btn btn-outline-primary" value="Update Book">
+				</div>
+			</form>
+			<p>
+				<a href="/books" class="btn btn-outline-secondary">Cancel</a>
+
+			</p>
+		</div>
+	</section>
+
+	<br>
+	<br>
+	<footer class="container">
+		<p class="float-right">
+			<a href="/books">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+	</footer>
 </body>
 </html>
