@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jtm.teamProjectLibrary.model.Book;
 import jtm.teamProjectLibrary.service.BookService;
@@ -50,7 +51,7 @@ public class BookController {
 	public String updateBookForm(@PathVariable("id") int id, Model model) {
 		Book book = bookService.findById(id);
 		model.addAttribute("book", book);
-		return "/book-update";
+		return "book-update";
 	}
 
 	@PostMapping("/book-update")
@@ -58,5 +59,22 @@ public class BookController {
 		bookService.saveBook(book);
 		return "redirect:/books";
 	}
+
+	@GetMapping("/book-search")
+	public String searchByTitle(@RequestParam(name = "title", required = false) String title, Model model) {
+		if (title != null) {
+			List<Book> books = bookService.findByTitle(title);
+			model.addAttribute("books", books);
+			return "book-list";
+		} else {
+			return "book-search";
+		}
+	}
+
+//	@GetMapping("/book-search")
+//	public String getBook(Model model) {
+//		List<Book> books = bookService.findByGenre(genresIds);
+//		return "book-list";
+//	}
 
 }

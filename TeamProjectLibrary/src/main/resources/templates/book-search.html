@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Search book</title>
+</head>
+<body>
+	<section class="text-center">
+		<div class="container">
+			<br>
+			<h1>Search book</h1>
+		</div>
+	</section>
+
+	<section class="center">
+		<div class="container">
+			<form action="#" th:action="@{/book-search}" th:object="${book}"
+				method="get">
+				<div class="form-group">
+					<label for="title">Title</label> <input type="text"
+						class="form-control classname" name="title" id="title"> <br />
+					<label for="genres">Genre</label> <input type="text"
+						class="form-control classname" name="genres" id="genres">
+					<br />
+					<div class="form-group blu-margin"></div>
+					<label for="authors">Author</label> <input type="text"
+						class="form-control classname" name="authors" id="authors">
+					<br /> <input type="submit" class="btn btn-outline-primary"
+						value="Search Book">
+				</div>
+			</form>
+			<p>
+				<a href="/books" class="btn btn-outline-secondary">Cancel</a>
+
+			</p>
+		</div>
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer class="container">
+		<p class="float-right">
+			<a href="/book-search">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+	</footer>
+</body>
+</html>

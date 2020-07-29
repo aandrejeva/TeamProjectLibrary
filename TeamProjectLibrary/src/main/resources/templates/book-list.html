@@ -17,6 +17,8 @@
 	<p>
 		<a href="/" class="btn btn-outline-primary">Homepage</a> <a
 			href="/book-create" class="btn btn-outline-primary">Create book</a>
+			<a
+			href="/book-search" class="btn btn-outline-primary">Search book</a>
 	</p>
 	<div th:switch="${books}">
 		<h2 th:case="null">No books found!</h2>
@@ -27,6 +29,7 @@
 					<tr>
 						<th>Id</th>
 						<th>Title</th>
+						<th>Genres</th>
 						<th>Year</th>
 						<th>Publisher</th>
 						<th>Annotation</th>
@@ -40,6 +43,7 @@
 					<tr th:each="book : ${books}">
 						<td th:text="${book.id}"></td>
 						<td th:text="${book.title}"></td>
+						<td th:text="${book.genres}"></td>
 						<td th:text="${book.year}"></td>
 						<td th:text="${book.publisher}"></td>
 						<td th:text="${book.annotation}"></td>
