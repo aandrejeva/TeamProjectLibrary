@@ -38,7 +38,12 @@ public class BookService {
 		return bookRepository.findByTitle(title);
 	}
 
-//	public List<Book> findByGenre(List<Integer> genresIds){
-//		return bookRepository.findByGenre(genresIds);}
+	public List<Book> findByGenre(List<Integer> genreId) {
+		return bookRepository.findByGenre(genreId);
+	}
+
+	public List<Book> findByAuthor(List<Integer> authorId) {
+		return bookRepository.findByAuthor(authorId);
+	}
 
 }

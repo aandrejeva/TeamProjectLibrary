@@ -1,5 +1,6 @@
 package jtm.teamProjectLibrary.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,16 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jtm.teamProjectLibrary.model.Book;
+import jtm.teamProjectLibrary.service.AuthorService;
 import jtm.teamProjectLibrary.service.BookService;
+import jtm.teamProjectLibrary.service.GenreService;
 
 @Controller
 public class BookController {
 
 	private BookService bookService;
+	private GenreService genreService;
+	private AuthorService authorService;
 
 	@Autowired
-	public BookController(BookService bookService) {
+	public BookController(BookService bookService, GenreService genreService, AuthorService authorService) {
 		this.bookService = bookService;
+		this.genreService = genreService;
+		this.authorService = authorService;
 	}
 
 	@GetMapping("/books")
@@ -31,7 +38,9 @@ public class BookController {
 	}
 
 	@GetMapping("/book-create")
-	public String createBookForm(Book book) {
+	public String createBookForm(Book book, Model model) {
+		model.addAttribute("genres", genreService.findAll());
+		model.addAttribute("authors", authorService.findAll());
 		return "book-create";
 	}
 
@@ -51,6 +60,8 @@ public class BookController {
 	public String updateBookForm(@PathVariable("id") int id, Model model) {
 		Book book = bookService.findById(id);
 		model.addAttribute("book", book);
+		model.addAttribute("genres", genreService.findAll());
+		model.addAttribute("authors", authorService.findAll());
 		return "book-update";
 	}
 
@@ -61,20 +72,20 @@ public class BookController {
 	}
 
 	@GetMapping("/book-search")
-	public String searchByTitle(@RequestParam(name = "title", required = false) String title, Model model) {
-		if (title != null) {
-			List<Book> books = bookService.findByTitle(title);
+	public String searchBook(@RequestParam(name = "title", required = false) String title,
+			@RequestParam(name = "genre", required = false) List<Integer> genreId,
+			@RequestParam(name = "author", required = false) List<Integer> authorId, Model model) {
+		if (title != null || genreId != null || authorId != null) {
+			List<Book> books = new ArrayList<Book>();
+			books.addAll(bookService.findByTitle(title));
+			books.addAll(bookService.findByGenre(genreId));
+			books.addAll(bookService.findByAuthor(authorId));
 			model.addAttribute("books", books);
 			return "book-list";
 		} else {
+			model.addAttribute("genres", genreService.findAll());
+			model.addAttribute("authors", authorService.findAll());
 			return "book-search";
 		}
 	}
-
-//	@GetMapping("/book-search")
-//	public String getBook(Model model) {
-//		List<Book> books = bookService.findByGenre(genresIds);
-//		return "book-list";
-//	}
-
 }

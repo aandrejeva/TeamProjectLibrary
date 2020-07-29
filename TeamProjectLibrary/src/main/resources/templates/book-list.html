@@ -29,7 +29,8 @@
 					<tr>
 						<th>Id</th>
 						<th>Title</th>
-						<th>Genres</th>
+						<th>Genre</th>
+						<th>Author</th>
 						<th>Year</th>
 						<th>Publisher</th>
 						<th>Annotation</th>
@@ -43,7 +44,8 @@
 					<tr th:each="book : ${books}">
 						<td th:text="${book.id}"></td>
 						<td th:text="${book.title}"></td>
-						<td th:text="${book.genres}"></td>
+						<td th:each="genre : ${book.genres}" th:text="${genre.name}"></td>
+						<td th:each="author : ${book.authors}" th:text="${author.lastName}"></td>
 						<td th:text="${book.year}"></td>
 						<td th:text="${book.publisher}"></td>
 						<td th:text="${book.annotation}"></td>
