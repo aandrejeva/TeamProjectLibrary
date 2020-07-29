@@ -14,9 +14,11 @@ public interface IssueBookRepository extends JpaRepository<IssueBook, Integer> {
 	+ "AND customers.last_name like ?1", nativeQuery = true)
 	public List<IssueBook> findAll(String searchName);
 
-	@Query(value = "SELECT count(*) from library_database.issue_book where book_id = ?1 and actual_return_date is null", 
+	
+	@Query(value = "SELECT book_id, count(*) from library_database.issue_book where actual_return_date is null group by book_id", 
 			nativeQuery = true)
-	public int availabilityCheck (int id);
+	public List<Object[]> availabilityCheck ();
+
 	
 }
 

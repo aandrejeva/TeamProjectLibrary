@@ -2,21 +2,29 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Issued books</title>
-    <style>
-	td {text-align: center;}
-</style>
 </head>
-<body>
-<div th:switch="${issues}">
-    <h2 th:case="null">No issued books found!</h2>
-    <div th:case="*">
-    
 
-        <h2>Issued books</h2>
-        <p><a href="/customer-issue">Issue new book</a></p>
-        
- </div>&nbsp;<div>  
+
+<body>
+
+		<section class="text-center">
+			<div class="container">
+				<br>
+				<h1>Issued books</h1>
+			</div>
+		</section>
+		<p>
+				<a href="/" class="btn btn-outline-primary">Homepage</a> <a
+						href="/book-issue-list" class="btn btn-outline-primary">Issue new book</a>
+		</p>
+		<div th:switch="${issues}">
+   			 <h2 th:case="null">No issued books found!</h2>
+    		<div th:case="*">
+    
+ 		</div>&nbsp;<div>  
      
  <div>
 	<form th:action= "@{issues}">
@@ -31,39 +39,55 @@
 
 </div>&nbsp;<div>
     
-        <table border="1" cellpadding="10">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Customer id</th>
-                <th>Book id</th>
-                <th>Date of issue</th>
-                <th>Date of return</th>
-                <th>Returned on</th>
-            </tr>
+        <table class="table table-hover">
+            <thead class="thead-light">>
+           		 <tr>
+           		 
+                		<th>Id</th>
+                		<th>First name</th>
+                		<th>Last name</th>
+                		<th>Customer id</th>
+                		<th>Book id</th>
+                		<th>Date of issue</th>
+                		<th>Date of return</th>
+                		<th>Returned on</th>
+                		
+            	</tr>
             </thead>
             <tbody>
-            <tr th:each="issueBook : ${issues}">
-                <td th:text="${issueBook.id}"></td>
-                <td th:text="${issueBook.customer.firstName}"></td>
-                <td th:text="${issueBook.customer.lastName}"></td>
-                <td th:text="${issueBook.customer.id}"></td>
-                <td th:text="${issueBook.book.title}"></td>
-                <td th:text="${issueBook.issueDate}"></td>
-                <td th:text="${issueBook.expectedReturnDate}"></td>
-                <td th:text="${issueBook.actualReturnDate}"></td>
-                <td><a th:href="@{customer-return/{id}(id=${issueBook.id})}">Select</a></td>
-            </tr>
+            
+            	<tr th:each="issueBook : ${issues}">
+                		<td th:text="${issueBook.id}"></td>
+                		<td th:text="${issueBook.customer.firstName}"></td>
+                		<td th:text="${issueBook.customer.lastName}"></td>
+                		<td th:text="${issueBook.customer.id}"></td>
+                		<td th:text="${issueBook.book.title}"></td>
+                		<td th:text="${issueBook.issueDate}"></td>
+                		<td th:text="${issueBook.expectedReturnDate}"></td>
+                		<td th:text="${issueBook.actualReturnDate}"></td>
+                		<td><a th:href="@{customer-return/{id}(id=${issueBook.id})}">Select</a></td>	
+           		</tr>
             </tbody>
         </table>
     </div>
 </div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
 <script type= "text/javascript">
 	function clearFilter() {
 	window.location = '/issues';
 	}
 </script>
+
+<footer class="container">
+		<p class="float-right">
+			<a href="/issues">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+	</footer>
 </body>
 </html>

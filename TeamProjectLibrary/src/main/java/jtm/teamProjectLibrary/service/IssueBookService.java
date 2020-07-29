@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jtm.teamProjectLibrary.model.Book;
 import jtm.teamProjectLibrary.model.IssueBook;
 import jtm.teamProjectLibrary.repository.IssueBookRepository;
 
@@ -39,13 +38,6 @@ public class IssueBookService {
 		return issueBookRepository.getOne(id);
 	}
 	
-	public void availabilityCheck(int id) {
-	int result = issueBookRepository.availabilityCheck(id);
-	Book book = new Book();
-		if(book.getCount() - result == 0) {
-			System.out.println("Book with id: " + id + " and mysql result: " + result + " and book count " + book.getCount() + " is not available at the moment");
-		}
-		
-	}
+
 	
 }
