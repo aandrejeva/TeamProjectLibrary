@@ -34,7 +34,6 @@
 						<th>Year</th>
 						<th>Publisher</th>
 						<th>Annotation</th>
-						<th>Available</th>
 						<th>Count</th>
 						<th></th>
 						<th></th>
@@ -49,7 +48,6 @@
 						<td th:text="${book.year}"></td>
 						<td th:text="${book.publisher}"></td>
 						<td th:text="${book.annotation}"></td>
-						<td th:text="${book.available}"></td>
 						<td th:text="${book.count}"></td>
 						<td><a th:href="@{book-update/{id}(id=${book.id})}">Edit</a></td>
 						<td><a th:href="@{book-delete/{id}(id=${book.id})}">Delete</a></td>
