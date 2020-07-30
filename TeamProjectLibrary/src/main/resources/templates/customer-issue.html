@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Issue new book</title>
+</head>
+<body>
+
+		<section class="text-center">
+		<div class="container">
+			<br>
+			<h1>Issue new Book</h1>
+		</div>
+	</section>
+	
+	<section class="center">
+	<div class="container">
+		
+		
+<form action="#" th:action="@{/customer-issue}" th:object="${issueBook}" method="post">
+	<div class="form-group">
+    <input type="hidden" class="form-control classname" th:field="*{id}" id="id">
+    <br/>
+    <label for="customer">Customer Id</label>
+    <input type="text" class="form-control classname" th:field="*{customer.id}" id="customer" placeholder="Customer Id">
+    <br/>
+    <label for="book">Book Id</label>
+    <input readonly type="text" class="form-control classname" th:field="*{book.id}" id="book" placeholder="Book Id">
+    <br/>
+    <label for="issueDate">Date of issue</label>
+    <input type="date" class="form-control classname" th:field="*{issueDate}" id="issueDate" placeholder="Date of issue">
+    <br/>
+    <label for="expectedReturnDate">Date of return</label>
+    <input type="date" class="form-control classname" th:field="*{expectedReturnDate}" id="expectedReturnDate" placeholder="Date of return">
+    <br/>
+    <input type="submit" class="btn btn-outline-primary" value="Issue book">
+    
+    </div>
+</form>
+<p>
+	<a href="/issues" class="btn btn-outline-secondary">Cancel</a>
+</p>
+
+</div>
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer class="container">
+		<p class="float-right">
+			<a href="/customer-issue">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+	</footer>
+
+</body>
+</html>

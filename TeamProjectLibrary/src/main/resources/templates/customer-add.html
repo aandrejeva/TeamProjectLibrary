@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		
+    <title>Add new customer</title>
+</head>
+<body>
+	<section class="text-center">
+		<div class="container">
+			<br>
+			<h1>Add new customer</h1>
+		</div>
+	</section>
+	
+<section class="center">
+	<div class="container">
+	<form action="#" th:action="@{/customer-add}" th:object="${customer}" method="post">
+	<div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control classname" th:field="*{firstName}" id="firstName" placeholder="First name">
+    <br/> 
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control classname" th:field="*{lastName}" id="lastName" placeholder="Last name">
+    <br/>
+    <label for="dob">Date of birth</label>
+    <input type="date" class="form-control classname" th:field="*{dob}" id="dob" placeholder="Date of birth">
+    <br/>
+    <label for="email">E-mail</label>
+    <input type="text" class="form-control classname" th:field="*{email}" id="email" placeholder="E-mail">
+    <br/>
+    <input type="submit" class="btn btn-outline-primary" value="Add new customer">
+    </div>
+		</form>
+		<p>
+		<a href="/customers" class="btn btn-outline-secondary">Cancel</a>
+		</p>
+	</div>
+	</section>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<footer class="container">
+		<p class="float-right">
+			<a href="/customers">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+	</footer>
+</body>
+</html>

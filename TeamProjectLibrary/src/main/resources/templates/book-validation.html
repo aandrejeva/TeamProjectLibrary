@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Check availability</title>
+</head>
+<body>
+<form action="#" th:action="@{/book-validation}" th:object="${issueBook}" method="post">
+    <input type="hidden" th:field="*{id}" id="id">
+    <br/>
+    <label for="book">Book Id</label>
+    <input type="text" name="id" th:value="${id}" required/>
+    <br/>
+    <input type="submit" value="Availability check">
+</form>
+</body>
+</html>

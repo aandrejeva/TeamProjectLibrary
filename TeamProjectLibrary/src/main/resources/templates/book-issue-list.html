@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Books</title>
+</head>
+<body>
+
+		<section class="text-center">
+		<div class="container">
+			<br>
+			<h1>Books</h1>
+		</div>
+	</section>
+	<p>
+		<a href="/issues" class="btn btn-outline-primary">Back to issues</a> <a
+			href="/" class="btn btn-outline-primary">Homepage</a>
+	</p>
+	
+<div th:switch="${books}">
+    <h2 th:case="null">No books found!</h2>
+    <div th:case="*">
+        
+       
+        <table class="table table-hover">
+            <thead class="thead-light">
+            	<tr>
+                	<th>Id</th>
+                	<th>Title</th>
+                	<th>Year</th>
+                	<th>Publisher</th>
+                	<th>Annotation</th>
+                	<th>Available</th>
+            	</tr>	
+            </thead>
+            <tbody>
+            	<tr th:each="book : ${books}">
+                	<td th:text="${book.id}"></td>
+                	<td th:text="${book.title}"></td>
+                	<td th:text="${book.year}"></td>
+                	<td th:text="${book.publisher}"></td>
+                	<td th:text="${book.annotation}"></td>
+                	<td th:text="${book.available}"></td>
+                	<td><a th:href="@{/customer-issue/{id}(id=${book.id})}" th:if="${book.available}">Issue</a></td>
+            	</tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer class="container">
+		<p class="float-right">
+			<a href="/book-issue-list">Back to top</a>
+		</p>
+		<p>© 2020 Library project</p>
+</footer>
+</body>
+</html>
