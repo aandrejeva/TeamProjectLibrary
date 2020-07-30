@@ -33,4 +33,17 @@ public class BookService {
 	public void deleteById(int id) {
 		bookRepository.deleteById(id);
 	}
+
+	public List<Book> findByTitle(String title) {
+		return bookRepository.findByTitle(title);
+	}
+
+	public List<Book> findByGenre(List<Integer> genreId) {
+		return bookRepository.findByGenre(genreId);
+	}
+
+	public List<Book> findByAuthor(List<Integer> authorId) {
+		return bookRepository.findByAuthor(authorId);
+	}
+
 }
