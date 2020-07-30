@@ -1,12 +1,12 @@
 -- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: library_database
+-- Host: localhost    Database: library_database_final
 -- ------------------------------------------------------
 -- Server version	5.5.47-0ubuntu0.14.04.1-log
 
-drop database if exists library_database;
-create database library_database;
-use library_database;
+drop database if exists library_database_final;
+create database library_database_final;
+use library_database_final;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
